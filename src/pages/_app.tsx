@@ -3,7 +3,7 @@ import type {AppProps} from 'next/app'
 import {useEffect} from "react";
 import ReactGA from "react-ga"
 
-const TRACKING_ID = "G-MN1E5QZBMW"; // OUR_TRACKING_ID
+const TRACKING_ID = "G-QRH59H5K1J"; // OUR_TRACKING_ID
 ReactGA.initialize(TRACKING_ID);
 export default function App({Component, pageProps}: AppProps) {
     useEffect(() => {
