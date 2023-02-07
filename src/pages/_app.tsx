@@ -1,13 +1,20 @@
 import '@/styles/globals.css'
 import type {AppProps} from 'next/app'
-import {useEffect} from "react";
-import ReactGA from "react-ga"
-
-const TRACKING_ID = "G-QRH59H5K1J"; // OUR_TRACKING_ID
-ReactGA.initialize(TRACKING_ID);
+import {Helmet} from "react-helmet"
 export default function App({Component, pageProps}: AppProps) {
-    useEffect(() => {
-        ReactGA.pageview(window.location.pathname + window.location.search);
-    }, []);
-    return <Component {...pageProps} />
+    return (
+        <>
+            <Helmet>
+                <script async src="https://www.googletagmanager.com/gtag/js?id=G-QRH59H5K1J"></script>
+                <script>
+                    {`window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+
+                        gtag('config', 'G-QRH59H5K1J');`}
+                </script>
+            </Helmet>
+            <Component {...pageProps} />
+        </>
+    )
 }
